@@ -1,5 +1,4 @@
-
-
+const app = require('./server');
 const config = require('./utils/config');
 const logger = require('./utils/logger');
 const mongoose = require('mongoose');
@@ -11,6 +10,9 @@ logger.info('Connecting to',config.MongoDB_URI);
 mongoose.connect(config.MongoDB_URI)
   .then(()=>{
     logger.info('Connected to MongoDB...');
+    app.listen(config.PORT,()=>{
+        logger.info(`Server running on port ${config.PORT}`);
+    });
   })
   .catch((err)=>{
     logger.error('Error connecting to MongoDB:',err);
