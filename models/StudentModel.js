@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 
 const studentSchema = new mongoose.Schema({
     name:{
-        type:string,
+        type:String,
         required: true
     },
     batch:{
-        type:string,
+        type:String,
         required: true
     },
     mentor:{
@@ -16,4 +16,4 @@ const studentSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model('Student',studentSchema,'Students') 
+module.exports = mongoose.model('Student',studentSchema,'Students'); 
